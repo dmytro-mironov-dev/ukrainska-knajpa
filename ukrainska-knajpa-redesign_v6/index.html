@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbf5e8">
+<meta name="description" content="Ukraińska Knajpa — українська кухня у Вроцлаві, Kotlarska 40.">
+<title>Ukraińska Knajpa — Петриківка</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#fbf5e8;--cream2:#f4ead3;--black:#161311;--red:#d7261e;--orange:#f28c28;--yellow:#f6c431;--green:#2f8f3a;--blue:#2266b0;--muted:#6d625a;--line:#eadcc0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--black);font:400 16px/1.65 Montserrat,system-ui,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;color:inherit}
+img{max-width:100%;display:block}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+h1,h2,h3{font-family:Lora,serif;font-weight:700;margin:0;line-height:1.05}
+em{font-style:italic;color:var(--red)}
+svg.orn{display:block;overflow:visible}
+
+header{position:sticky;top:0;z-index:30;background:rgba(251,245,232,.93);backdrop-filter:blur(10px);transition:box-shadow .25s}
+header.scrolled{box-shadow:0 1px 0 var(--line)}
+.nav{height:84px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand svg{width:52px;height:52px;flex:none}
+.brand b{display:block;font:700 22px/1 Lora,serif}
+.brand small{display:block;font-size:10px;letter-spacing:2.6px;text-transform:uppercase;color:var(--green);font-weight:600;margin-top:6px}
+.navlinks{display:flex;gap:30px;font-weight:600;font-size:14px}
+.navlinks a{position:relative;padding:6px 0}
+.navlinks a:before{content:"";position:absolute;left:50%;bottom:-4px;width:7px;height:7px;border-radius:50%;background:var(--red);transform:translateX(-50%) scale(0);transition:transform .2s}
+.navlinks a:hover:before{transform:translateX(-50%) scale(1)}
+.navright{display:flex;align-items:center;gap:12px}
+.langs{display:flex;gap:4px}
+.langs button{border:0;background:none;width:36px;height:36px;border-radius:50%;font-size:12px;font-weight:700}
+.langs button.active{background:var(--red);color:#fff}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;background:var(--black);color:var(--cream);font-weight:600;font-size:14px;border:0;transition:background .2s,transform .2s}
+.btn:hover{background:var(--red);transform:translateY(-2px)}
+.btn.out{background:transparent;color:var(--black);box-shadow:inset 0 0 0 2px var(--black)}
+.btn.out:hover{background:var(--black);color:var(--cream)}
+.btn.small{padding:10px 18px;font-size:13px}
+.mobile-toggle{display:none;border:0;background:var(--black);color:var(--cream);width:44px;height:44px;border-radius:50%;font-size:18px}
+
+.hero{padding:30px 0 80px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;color:var(--green)}
+.eyebrow i{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:12px 0 0 var(--orange),24px 0 0 var(--yellow);margin-right:24px}
+h1{font-size:clamp(46px,6.6vw,92px);margin:20px 0 22px;letter-spacing:-1px}
+.lead{font-size:18px;color:var(--muted);max-width:490px;margin:0 0 30px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.plate-wrap{position:relative;width:min(560px,100%);aspect-ratio:1;justify-self:center}
+.plate-wrap .wreath{position:absolute;inset:0;width:100%;height:100%}
+.plate{position:absolute;inset:16%;border-radius:50%;overflow:hidden;background:var(--black);box-shadow:0 0 0 10px var(--cream),0 0 0 14px var(--black),0 30px 60px -20px rgba(0,0,0,.45)}
+.plate img{width:100%;height:100%;object-fit:cover;object-position:28% 50%;transform:scale(1.45)}
+.plate-wrap .label{position:absolute;right:2%;bottom:6%;background:var(--yellow);border-radius:999px;padding:10px 18px;font:italic 600 18px Lora,serif;transform:rotate(-6deg);box-shadow:0 10px 20px -10px rgba(0,0,0,.4)}
+
+.section{padding:96px 0;position:relative}
+.head{text-align:center;max-width:700px;margin:0 auto 42px}
+.head svg.orn{width:200px;height:56px;margin:0 auto 14px}
+.head h2{font-size:clamp(38px,5vw,64px);margin:10px 0 12px}
+.head p{color:var(--muted);margin:0}
+.tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-bottom:46px}
+.tabs button{border:2px solid var(--black);background:transparent;padding:9px 20px;border-radius:999px;font-weight:600;font-size:14px;transition:.2s}
+.tabs button.active,.tabs button:hover{background:var(--black);color:var(--cream)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:50px 34px}
+.dish{text-align:center;display:flex;flex-direction:column;align-items:center}
+.dish .pl{position:relative;width:78%;aspect-ratio:1;margin-bottom:22px}
+.dish .pl .ph{position:absolute;inset:0;border-radius:50%;overflow:hidden;box-shadow:0 0 0 7px var(--cream),0 0 0 10px var(--black),0 24px 40px -18px rgba(0,0,0,.5);transition:transform .5s}
+.dish:hover .pl .ph{transform:rotate(6deg)}
+.dish .pl img{width:100%;height:100%;object-fit:cover;transform:scale(1.15)}
+.dish .pl svg.orn{position:absolute;width:62%;left:-14%;top:-12%;transform:rotate(-20deg);pointer-events:none}
+.dish .pl svg.orn.r{left:auto;right:-14%;top:auto;bottom:-10%;transform:rotate(160deg);width:46%}
+.dish .tag{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red)}
+.dish h3{font-size:30px;margin:6px 0 8px}
+.dish p{color:var(--muted);font-size:14.5px;margin:0 0 12px;max-width:320px}
+.dish small{font-size:12px;font-weight:600;color:var(--green)}
+.more{margin-top:70px;background:var(--black);color:var(--cream);border-radius:30px;padding:40px 44px;display:grid;grid-template-columns:220px 1fr;gap:30px;position:relative;overflow:hidden}
+.more h3{font-size:32px;color:var(--yellow)}
+.more ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 26px}
+.more li{display:flex;align-items:center;gap:10px;font-weight:500}
+.more li:before{content:"";width:10px;height:10px;border-radius:50%;background:var(--red);box-shadow:inset -2px -2px 0 rgba(0,0,0,.25)}
+.more .note{grid-column:2;margin:0;color:#b9ada0;font-size:13px}
+
+.story{background:var(--black);color:var(--cream);overflow:hidden}
+.story .inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.story .eyebrow{color:var(--yellow)}
+.story h2{font-size:clamp(40px,5vw,64px);margin:16px 0 18px}
+.story h2 em{color:var(--yellow)}
+.story p{color:#cfc4b6;font-size:17px}
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+.value{border:1px solid rgba(251,245,232,.2);border-radius:18px;padding:18px 16px;font-weight:600;font-size:14px}
+.value b{display:block;width:16px;height:16px;border-radius:50%;margin-bottom:12px}
+.story-art{position:relative;aspect-ratio:1}
+.story-art .big{position:absolute;inset:0;width:100%;height:100%}
+.story-art img{position:absolute;inset:22%;width:56%;height:56%;object-fit:cover;border-radius:50%;box-shadow:0 0 0 8px var(--black),0 0 0 11px var(--yellow)}
+
+.visit-card{display:grid;grid-template-columns:1fr 1fr;background:var(--cream2);border-radius:34px;overflow:hidden;position:relative}
+.visit-card .copy{padding:54px 50px}
+.visit-card h2{font-size:clamp(36px,4.4vw,56px);margin:16px 0 14px}
+.visit-card p{color:var(--muted)}
+.details{margin:26px 0 30px;display:grid;gap:12px}
+.detail{display:flex;gap:14px;align-items:center}
+.detail i{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-style:normal;color:#fff;flex:none;font-size:15px}
+.detail b{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:700}
+.detail span,.detail a{font-weight:600}
+.visit-card .pic{position:relative;min-height:420px;background:url(assets/varenyky.jpg) center/cover}
+.visit-card .pic svg.orn{position:absolute;width:70%;right:-6%;bottom:-6%}
+footer{padding:40px 0 50px;font-size:13px;color:var(--muted)}
+footer .row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer .fb{display:flex;align-items:center;gap:10px;font:700 20px Lora,serif;color:var(--black)}
+footer .fb svg{width:38px;height:38px}
+footer nav{display:flex;gap:20px;font-weight:600}
+footer nav a:hover{color:var(--red)}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+@keyframes sway{0%,100%{transform:rotate(0)}50%{transform:rotate(2.5deg)}}
+.plate-wrap .wreath{animation:sway 9s ease-in-out infinite;transform-origin:50% 50%}
+
+@media (max-width:1000px){
+  .navlinks{position:absolute;top:84px;left:0;right:0;flex-direction:column;gap:0;background:var(--cream);padding:6px 16px 18px;border-bottom:1px solid var(--line);display:none}
+  .navlinks.open{display:flex}.navlinks a{padding:14px 0;border-bottom:1px dashed var(--line)}
+  .mobile-toggle{display:block}
+  .hero-grid,.story .inner,.visit-card{grid-template-columns:1fr}
+  .menu-grid{grid-template-columns:1fr 1fr}
+  .more{grid-template-columns:1fr}.more .note{grid-column:1}
+  .story-art{max-width:460px;width:100%;margin:auto}
+}
+@media (max-width:640px){
+  .nav{height:72px}.navlinks{top:72px}
+  .brand svg{width:42px;height:42px}.brand b{font-size:19px}.brand small{display:none}
+  .navright .btn{display:none}
+  .langs button{width:32px;height:32px}
+  .hero{padding:20px 0 60px}
+  .menu-grid,.values{grid-template-columns:1fr}
+  .section{padding:70px 0}
+  .visit-card .copy{padding:34px 22px}
+  .more{padding:30px 22px}
+  .plate-wrap .label{font-size:15px}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <path id="petal" d="M0 0C-7-9-7-21 0-31 7-21 7-9 0 0Z"/>
+    <path id="leaf" d="M0 0C7-8 21-9 32 0 21 9 7 8 0 0Z"/>
+    <symbol id="flower" viewBox="-40 -40 80 80" overflow="visible">
+      <g fill="#d7261e"><use href="#petal" transform="rotate(-72)"/><use href="#petal" transform="rotate(-36)"/><use href="#petal"/><use href="#petal" transform="rotate(36)"/><use href="#petal" transform="rotate(72)"/></g>
+      <g fill="#f28c28"><use href="#petal" transform="rotate(-54) scale(.62)"/><use href="#petal" transform="rotate(-18) scale(.62)"/><use href="#petal" transform="rotate(18) scale(.62)"/><use href="#petal" transform="rotate(54) scale(.62)"/></g>
+      <g fill="#f6c431"><use href="#petal" transform="scale(.42)"/><use href="#petal" transform="rotate(-36) scale(.38)"/><use href="#petal" transform="rotate(36) scale(.38)"/></g>
+      <path d="M-14 2a14 9 0 0 0 28 0Z" fill="#161311"/>
+      <g fill="#f6c431"><circle cx="-8" cy="4" r="1.6"/><circle cx="0" cy="6" r="1.6"/><circle cx="8" cy="4" r="1.6"/></g>
+    </symbol>
+    <symbol id="berries" viewBox="-20 -20 40 40" overflow="visible">
+      <g fill="#d7261e"><circle cx="0" cy="0" r="5"/><circle cx="-9" cy="4" r="5"/><circle cx="9" cy="4" r="5"/><circle cx="-4" cy="11" r="5"/><circle cx="5" cy="12" r="5"/><circle cx="0" cy="-9" r="4.5"/></g>
+      <g fill="#fff" opacity=".85"><circle cx="-1.5" cy="-1.5" r="1.3"/><circle cx="-10.5" cy="2.5" r="1.3"/><circle cx="7.5" cy="2.5" r="1.3"/><circle cx="-5.5" cy="9.5" r="1.3"/><circle cx="3.5" cy="10.5" r="1.3"/><circle cx="-1.5" cy="-10.5" r="1.2"/></g>
+    </symbol>
+    <symbol id="sprig" viewBox="0 0 200 120" overflow="visible">
+      <path d="M10 100C50 95 80 70 100 40S150 8 190 14" fill="none" stroke="#2f8f3a" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M100 40c-12-6-20-2-24 6m24-6c6-12 2-22-6-26" fill="none" stroke="#161311" stroke-width="2" stroke-linecap="round"/>
+      <g fill="#2f8f3a"><use href="#leaf" transform="translate(40 92) rotate(-150)"/><use href="#leaf" transform="translate(62 78) rotate(-40)"/><use href="#leaf" transform="translate(130 22) rotate(-160)"/><use href="#leaf" transform="translate(150 16) rotate(-20) scale(.8)"/></g>
+      <g fill="#7cc04b"><use href="#leaf" transform="translate(84 58) rotate(-120) scale(.7)"/><use href="#leaf" transform="translate(172 14) rotate(30) scale(.6)"/></g>
+      <use href="#berries" x="18" y="62" width="40" height="40"/>
+      <use href="#flower" x="85" y="-12" width="80" height="80"/>
+      <circle cx="190" cy="14" r="6" fill="#2266b0"/><circle cx="190" cy="14" r="2.2" fill="#f6c431"/>
+    </symbol>
+    <symbol id="logo" viewBox="-40 -40 80 80">
+      <circle r="38" fill="#161311"/>
+      <circle r="34" fill="none" stroke="#f6c431" stroke-width="1" stroke-dasharray="2 3"/>
+      <g transform="translate(0 6) scale(.72)">
+        <g fill="#2f8f3a"><use href="#leaf" transform="translate(-4 12) rotate(-160)"/><use href="#leaf" transform="translate(4 12) rotate(-20)"/></g>
+        <use href="#flower" x="-40" y="-40" width="80" height="80"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="Ukraińska Knajpa"><svg aria-hidden="true"><use href="#logo"/></svg><span><b>Ukraińska Knajpa</b><small>Wrocław · Kotlarska 40</small></span></a>
+    <nav class="navlinks" id="navlinks"><a href="#home" data-i18n="navHome">Головна</a><a href="#menu" data-i18n="navMenu">Меню</a><a href="#about" data-i18n="navAbout">Про нас</a><a href="#visit" data-i18n="navVisit">Контакти</a></nav>
+    <div class="navright">
+      <div class="langs" role="group" aria-label="Language"><button data-lang="uk">UA</button><button data-lang="pl">PL</button><button data-lang="en">EN</button></div>
+      <a class="btn small" href="tel:+48660003265" data-i18n="reserve">Забронювати</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow"><i></i><span data-i18n="eyebrow"></span></div>
+      <h1 data-i18n="heroTitle"></h1>
+      <p class="lead" data-i18n="heroText"></p>
+      <div class="hero-actions"><a class="btn" href="#menu" data-i18n="menuCta">Дивитися меню</a><a class="btn out" href="#about" data-i18n="storyCta">Наша історія</a></div>
+    </div>
+    <div class="plate-wrap">
+      <svg class="wreath orn" id="wreath" viewBox="-100 -100 200 200" aria-hidden="true"></svg>
+      <div class="plate"><img src="assets/hero-table.jpg" alt="Український борщ зі сметаною"></div>
+      <div class="label" data-i18n="plateLabel">Борщ — серце столу</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="menu">
+  <div class="wrap">
+    <div class="head"><svg class="orn" viewBox="0 0 200 56" aria-hidden="true"><use href="#sprig" x="0" y="0" width="100" height="60" transform="translate(100 0) scale(-1 1)"/><use href="#sprig" x="100" y="0" width="100" height="60"/></svg><div class="eyebrow" data-i18n="menuEyebrow"></div><h2 data-i18n="menuTitle"></h2><p data-i18n="menuIntro"></p></div>
+    <div class="tabs"><button class="active" data-filter="all" data-i18n="all">Усе</button><button data-filter="soups" data-i18n="soups">Супи</button><button data-filter="mains" data-i18n="mains">Основні</button><button data-filter="sides" data-i18n="sides">До столу</button></div>
+    <div class="menu-grid" id="menuGrid"></div>
+    <div class="more"><h3 data-i18n="moreTitle"></h3><ul id="moreList"></ul><p class="note" data-i18n="moreNote"></p></div>
+  </div>
+</section>
+
+<section class="section story" id="about">
+  <div class="wrap inner">
+    <div class="story-art">
+      <svg class="big orn" id="wreath2" viewBox="-100 -100 200 200" aria-hidden="true"></svg>
+      <img src="assets/varenyky.jpg" alt="Вареники" loading="lazy">
+    </div>
+    <div>
+      <div class="eyebrow" data-i18n="aboutEyebrow"></div>
+      <h2 data-i18n="aboutTitle"></h2>
+      <p data-i18n="aboutText"></p>
+      <p data-i18n="petrykivka"></p>
+      <div class="values">
+        <div class="value"><b style="background:var(--red)"></b><span data-i18n="value1"></span></div>
+        <div class="value"><b style="background:var(--yellow)"></b><span data-i18n="value2"></span></div>
+        <div class="value"><b style="background:var(--green)"></b><span data-i18n="value3"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="visit">
+  <div class="wrap">
+    <div class="visit-card">
+      <div class="copy">
+        <div class="eyebrow" data-i18n="visitEyebrow"></div>
+        <h2 data-i18n="visitTitle"></h2>
+        <p data-i18n="visitText"></p>
+        <div class="details">
+          <div class="detail"><i style="background:var(--red)">⌂</i><div><b data-i18n="addressLabel">Адреса</b><span>Kotlarska 40, Wrocław</span></div></div>
+          <div class="detail"><i style="background:var(--green)">☎</i><div><b data-i18n="phoneLabel">Телефон</b><a href="tel:+48660003265">+48 660 003 265</a></div></div>
+          <div class="detail"><i style="background:var(--blue)">✓</i><div><b data-i18n="bookingLabel">Бронювання</b><span data-i18n="bookingText"></span></div></div>
+        </div>
+        <div class="hero-actions"><a class="btn" href="tel:+48660003265" data-i18n="callCta">Зателефонувати</a><a class="btn out" href="https://www.google.com/maps/search/?api=1&query=Kotlarska+40+Wroclaw" target="_blank" rel="noopener" data-i18n="mapCta">Відкрити мапу</a></div>
+      </div>
+      <div class="pic" role="img" aria-label="Вареники"><svg class="orn" viewBox="0 0 200 120" aria-hidden="true"><use href="#sprig"/></svg></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <div class="fb"><svg aria-hidden="true"><use href="#logo"/></svg>Ukraińska Knajpa</div>
+    <div data-i18n="footerLine"></div>
+    <nav><a href="#menu" data-i18n="navMenu">Меню</a><a href="#about" data-i18n="navAbout">Про нас</a><a href="#visit" data-i18n="navVisit">Контакти</a></nav>
+  </div>
+</footer>
+
+<script>
+/* Petrykivka wreath: leaves, berries and flowers placed around a circle */
+function wreath(id, n, dark) {
+  var svg = document.getElementById(id); if (!svg) return;
+  var out = '<circle r="78" fill="none" stroke="' + (dark ? '#f6c431' : '#2f8f3a') + '" stroke-width="1.6"/>';
+  for (var i = 0; i < n; i++) {
+    var a = i * 360 / n;
+    out += '<g transform="rotate(' + a + ') translate(0 -80)">' +
+      '<use href="#leaf" fill="#2f8f3a" transform="rotate(-150) scale(.55)"/>' +
+      '<use href="#leaf" fill="#7cc04b" transform="rotate(-30) scale(.45)"/>';
+    if (i % 4 === 0) out += '<use href="#flower" x="-15" y="-15" width="30" height="30"/>';
+    else if (i % 4 === 2) out += '<use href="#berries" x="-8" y="-8" width="16" height="16"/>';
+    else out += '<circle r="3.2" fill="' + (i % 8 === 1 ? '#2266b0' : '#f6c431') + '"/>';
+    out += '</g>';
+  }
+  svg.innerHTML = out;
+}
+wreath("wreath", 16, false);
+wreath("wreath2", 12, true);
+
+window.KNAJPA = {
+  i18n: {
+    uk: { heroTitle: "Смак, що <em>квітне</em><br>на тарілці.", menuTitle: "Наш <em>розписний</em> стіл", plateLabel: "Борщ — серце столу",
+          aboutTitle: "Готуємо так, як <em>для своїх.</em>", petrykivka: "Наш стиль надихнула петриківка — український розпис, що прикрашав хати й посуд. Так само яскраво ми подаємо і страви." },
+    pl: { heroTitle: "Smak, który <em>kwitnie</em><br>na talerzu.", menuTitle: "Nasz <em>malowany</em> stół", plateLabel: "Barszcz — serce stołu",
+          aboutTitle: "Gotujemy jak <em>dla swoich.</em>", petrykivka: "Inspiracją jest petrykiwka — ukraińskie malarstwo ludowe, które zdobiło domy i naczynia. Równie barwnie podajemy nasze dania." },
+    en: { heroTitle: "Flavour that <em>blooms</em><br>on the plate.", menuTitle: "Our <em>painted</em> table", plateLabel: "Borscht — heart of the table",
+          aboutTitle: "We cook as if <em>you were family.</em>", petrykivka: "Our look is inspired by Petrykivka — Ukrainian folk painting that once decorated homes and tableware. We serve our food just as colourfully." }
+  },
+  card: function (d, t, l, i) {
+    return '<div class="pl"><div class="ph"><img loading="lazy" src="' + d.img + '" alt="' + d.name[l] + '"></div>' +
+      '<svg class="orn" viewBox="0 0 200 120" aria-hidden="true"><use href="#sprig"/></svg>' +
+      (i % 2 ? '<svg class="orn r" viewBox="0 0 200 120" aria-hidden="true"><use href="#sprig"/></svg>' : '') + '</div>' +
+      '<span class="tag">' + d.tag[l] + '</span><h3>' + d.name[l] + '</h3><p>' + d.desc[l] + '</p><small>' + t[d.badge] + ' · ' + t.ask + '</small>';
+  }
+};
+</script>
+<script src="site.js"></script>
+</body>
+</html>

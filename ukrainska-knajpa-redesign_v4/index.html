@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f6f2">
+<meta name="description" content="Ukraińska Knajpa — українська кухня у Вроцлаві, Kotlarska 40.">
+<title>Ukraińska Knajpa — Мінімал</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f6f2;--card:#fff;--ink:#111418;--muted:#6b6f76;--line:#e4e2db;--blue:#0057b7;--yellow:#ffd500}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 'Inter Tight',system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;color:inherit}
+img{max-width:100%;display:block}
+.wrap{width:min(1280px,100% - 32px);margin-inline:auto}
+h1,h2,h3{font-family:Unbounded,sans-serif;font-weight:600;margin:0;line-height:1.02;letter-spacing:-.02em}
+.mark{background:linear-gradient(transparent 62%,var(--yellow) 62% 92%,transparent 92%);padding:0 .08em}
+
+header{position:sticky;top:0;z-index:30;background:rgba(247,246,242,.88);backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .25s}
+header.scrolled{border-color:var(--line)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;font:600 15px/1.1 Unbounded,sans-serif;letter-spacing:-.01em}
+.brand svg{width:42px;height:42px;flex:none}
+.navlinks{display:flex;gap:6px;font-weight:500;font-size:15px}
+.navlinks a{padding:8px 14px;border-radius:999px;transition:background .2s}
+.navlinks a:hover{background:#ecebe5}
+.navright{display:flex;align-items:center;gap:10px}
+.langs{display:flex;background:#ecebe5;border-radius:999px;padding:3px}
+.langs button{border:0;background:none;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:600}
+.langs button.active{background:var(--card);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;background:var(--ink);color:#fff;font-weight:600;font-size:15px;border:0;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:var(--blue)}
+.btn .arr{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--yellow);color:var(--ink);font-size:12px}
+.btn.light{background:var(--card);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.btn.light:hover{background:var(--yellow)}
+.btn.small{padding:11px 18px;font-size:14px}
+.mobile-toggle{display:none;border:0;background:#ecebe5;width:44px;height:44px;border-radius:50%;font-size:18px}
+
+.hero{padding:56px 0 30px}
+.hero-top{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;color:var(--muted)}
+.eyebrow:before{content:"";width:10px;height:10px;border-radius:50%;background:linear-gradient(var(--blue) 50%,var(--yellow) 50%)}
+h1{font-size:clamp(44px,8.6vw,132px);margin:22px 0 0}
+.hero-side{max-width:340px;padding-bottom:12px}
+.hero-side p{color:var(--muted);margin:0 0 22px;font-size:17px}
+.bento{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:240px 240px;gap:14px;margin-top:48px}
+.bento > *{border-radius:22px;overflow:hidden;position:relative}
+.bento img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.bento > *:hover img{transform:scale(1.04)}
+.bento .b1{grid-row:span 2}
+.bento .b4{grid-column:span 2;background:var(--blue);color:#fff;padding:28px 30px;display:flex;flex-direction:column;justify-content:space-between}
+.bento .b4 b{font:600 clamp(22px,2.4vw,32px)/1.12 Unbounded,sans-serif;letter-spacing:-.02em;max-width:520px}
+.bento .b4 .row{display:flex;justify-content:space-between;align-items:end;gap:20px;font-size:14px;opacity:.9}
+.bento .b4 .dot{width:64px;height:64px;border-radius:50%;background:var(--yellow);flex:none}
+.chip{position:absolute;left:14px;bottom:14px;background:rgba(255,255,255,.92);padding:7px 12px;border-radius:999px;font-size:13px;font-weight:600}
+
+.section{padding:110px 0}
+.head{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:end;margin-bottom:40px}
+.head h2{font-size:clamp(36px,5vw,72px);margin-top:16px}
+.head p{color:var(--muted);font-size:17px;max-width:440px;justify-self:end;margin:0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.tabs button{border:1px solid var(--line);background:var(--card);padding:10px 18px;border-radius:999px;font-weight:600;font-size:14px;transition:.2s}
+.tabs button:hover{border-color:var(--ink)}
+.tabs button.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.dish{background:var(--card);border-radius:22px;padding:10px;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.dish:hover{transform:translateY(-4px);box-shadow:0 20px 40px -24px rgba(0,0,0,.25)}
+.dish-img{aspect-ratio:5/4;border-radius:16px;overflow:hidden;position:relative}
+.dish-img img{width:100%;height:100%;object-fit:cover}
+.dish-tag{position:absolute;left:10px;top:10px;background:var(--yellow);padding:6px 11px;border-radius:999px;font-size:12px;font-weight:600}
+.dish-body{padding:18px 12px 12px;display:flex;flex-direction:column;flex:1}
+.dish h3{font-size:21px;margin-bottom:8px}
+.dish p{color:var(--muted);font-size:15px;margin:0 0 16px;flex:1}
+.dish-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px;font-weight:600}
+.dish-foot span{color:var(--blue)}
+.dish-foot small{color:var(--muted);font-size:13px;font-weight:500}
+.more{margin-top:14px;background:var(--card);border-radius:22px;padding:28px 30px;display:grid;grid-template-columns:240px 1fr;gap:24px}
+.more h3{font-size:20px}
+.more ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.more li{padding:8px 14px;border-radius:999px;background:var(--bg);font-size:14px;font-weight:500}
+.more .note{grid-column:2;margin:0;font-size:13px;color:var(--muted)}
+
+.statement{padding:120px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.statement .big{font:500 clamp(28px,4vw,56px)/1.15 Unbounded,sans-serif;letter-spacing:-.02em;max-width:1100px;margin:22px 0 0}
+.statement .big img{display:inline-block;height:.9em;width:1.8em;object-fit:cover;border-radius:999px;vertical-align:-.1em}
+.story-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:60px}
+.stat{background:var(--card);border-radius:22px;padding:26px}
+.stat svg{width:36px;height:36px;margin-bottom:30px}
+.stat b{display:block;font:600 19px Unbounded,sans-serif;letter-spacing:-.01em}
+.stat p{margin:8px 0 0;color:var(--muted);font-size:15px}
+
+.visit-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:14px}
+.visit-main{background:var(--ink);color:#fff;border-radius:28px;padding:48px;display:flex;flex-direction:column;justify-content:space-between;gap:40px;min-height:460px}
+.visit-main .eyebrow{color:#9aa0a8}
+.visit-main h2{font-size:clamp(32px,4vw,56px);margin-top:16px}
+.visit-main p{color:#b9bec6;max-width:480px}
+.phone{font:600 clamp(26px,3.4vw,46px) Unbounded,sans-serif;letter-spacing:-.02em;color:var(--yellow)}
+.visit-side{display:grid;grid-template-rows:1fr auto;gap:14px}
+.visit-photo{border-radius:28px;overflow:hidden;min-height:240px;background:url(assets/varenyky.jpg) center/cover}
+.details{background:var(--card);border-radius:28px;padding:10px 26px}
+.detail{display:flex;justify-content:space-between;gap:18px;padding:15px 0;border-bottom:1px solid var(--line);font-size:15px}
+.detail:last-child{border:0}
+.detail b{color:var(--muted);font-weight:500}
+.detail span{font-weight:600;text-align:right}
+footer{padding:40px 0 50px;font-size:14px;color:var(--muted)}
+footer .row{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer .brand{color:var(--ink)}
+footer nav{display:flex;gap:20px}
+footer nav a:hover{color:var(--ink)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+
+@media (max-width:1000px){
+  .navlinks{position:absolute;top:76px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);padding:8px 16px 18px;border-bottom:1px solid var(--line);display:none}
+  .navlinks.open{display:flex}.navlinks a{border-radius:12px;padding:14px}
+  .mobile-toggle{display:block}
+  .hero-top,.head,.visit-grid{grid-template-columns:1fr}
+  .head p{justify-self:start}
+  .bento{grid-template-columns:1fr 1fr;grid-template-rows:260px 200px auto}
+  .bento .b1{grid-row:auto;grid-column:span 2}
+  .menu-grid{grid-template-columns:1fr 1fr}
+  .more{grid-template-columns:1fr}.more .note{grid-column:1}
+  .story-grid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .nav{height:68px}.navlinks{top:68px}
+  .brand span{display:none}
+  .navright .btn{display:none}
+  .hero{padding:34px 0 20px}
+  .bento{grid-template-rows:220px 160px auto;gap:10px}
+  .menu-grid{grid-template-columns:1fr}
+  .section,.statement{padding:76px 0}
+  .visit-main{padding:30px 24px;min-height:0}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="logo" viewBox="0 0 48 48">
+      <rect width="48" height="48" rx="14" fill="#0057b7"/>
+      <path d="M14 0h20a14 14 0 0 1 14 14v24H0V14A14 14 0 0 1 14 0Z" fill="#111418"/>
+      <path d="M24 35V14" stroke="#ffd500" stroke-width="2" stroke-linecap="round"/>
+      <g fill="#ffd500">
+        <ellipse cx="24" cy="11" rx="2.6" ry="4.2"/>
+        <ellipse cx="19.6" cy="17" rx="2.4" ry="4" transform="rotate(-32 19.6 17)"/>
+        <ellipse cx="28.4" cy="17" rx="2.4" ry="4" transform="rotate(32 28.4 17)"/>
+        <ellipse cx="19.6" cy="24" rx="2.4" ry="4" transform="rotate(-32 19.6 24)"/>
+        <ellipse cx="28.4" cy="24" rx="2.4" ry="4" transform="rotate(32 28.4 24)"/>
+        <ellipse cx="19.6" cy="30" rx="2.4" ry="4" transform="rotate(-32 19.6 30)"/>
+        <ellipse cx="28.4" cy="30" rx="2.4" ry="4" transform="rotate(32 28.4 30)"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#home" aria-label="Ukraińska Knajpa"><svg aria-hidden="true"><use href="#logo"/></svg><span>Ukraińska<br>Knajpa</span></a>
+    <nav class="navlinks" id="navlinks"><a href="#home" data-i18n="navHome">Головна</a><a href="#menu" data-i18n="navMenu">Меню</a><a href="#about" data-i18n="navAbout">Про нас</a><a href="#visit" data-i18n="navVisit">Контакти</a></nav>
+    <div class="navright">
+      <div class="langs" role="group" aria-label="Language"><button data-lang="uk">UA</button><button data-lang="pl">PL</button><button data-lang="en">EN</button></div>
+      <a class="btn small" href="tel:+48660003265" data-i18n="reserve">Забронювати</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-top">
+      <div><div class="eyebrow" data-i18n="eyebrow"></div><h1 data-i18n="heroTitle"></h1></div>
+      <div class="hero-side"><p data-i18n="heroText"></p><a class="btn" href="#menu"><span data-i18n="menuCta">Дивитися меню</span><span class="arr">↓</span></a></div>
+    </div>
+    <div class="bento">
+      <div class="b1"><img src="assets/hero-table.jpg" alt="Борщ, пампушки і вареники"><span class="chip" data-i18n="heroNote"></span></div>
+      <div><img src="assets/deruny.jpg" alt="Деруни"></div>
+      <div><img src="assets/holubtsi.jpg" alt="Голубці"></div>
+      <div class="b4"><b data-i18n="storyBadge"></b><div class="row"><span>Kotlarska 40 · Wrocław</span><span class="dot" aria-hidden="true"></span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="menu">
+  <div class="wrap">
+    <div class="head"><div><div class="eyebrow" data-i18n="menuEyebrow"></div><h2 data-i18n="menuTitle"></h2></div><p data-i18n="menuIntro"></p></div>
+    <div class="tabs"><button class="active" data-filter="all" data-i18n="all">Усе</button><button data-filter="soups" data-i18n="soups">Супи</button><button data-filter="mains" data-i18n="mains">Основні</button><button data-filter="sides" data-i18n="sides">До столу</button></div>
+    <div class="menu-grid" id="menuGrid"></div>
+    <div class="more"><h3 data-i18n="moreTitle"></h3><ul id="moreList"></ul><p class="note" data-i18n="moreNote"></p></div>
+  </div>
+</section>
+
+<section class="statement" id="about">
+  <div class="wrap">
+    <div class="eyebrow" data-i18n="aboutEyebrow"></div>
+    <p class="big" data-i18n="aboutBig"></p>
+    <div class="story-grid">
+      <div class="stat"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="17" fill="#ffd500"/><path d="M8 20c0-5 4.5-8 10-8s10 3 10 8c-2.5 2.5-6 3.4-10 3.4S10.5 22.5 8 20Z" fill="none" stroke="#111418" stroke-width="1.8"/></svg><b data-i18n="value1"></b><p data-i18n="story1"></p></div>
+      <div class="stat"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="17" fill="#0057b7"/><path d="M18 27s-9-5.6-9-12a4.6 4.6 0 0 1 9-1.3A4.6 4.6 0 0 1 27 15c0 6.4-9 12-9 12Z" fill="#fff"/></svg><b data-i18n="value2"></b><p data-i18n="story2"></p></div>
+      <div class="stat"><svg viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="17" fill="#111418"/><path d="M18 9v18M12 15l6-6 6 6" fill="none" stroke="#ffd500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><b data-i18n="value3"></b><p data-i18n="story3"></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="visit">
+  <div class="wrap visit-grid">
+    <div class="visit-main">
+      <div><div class="eyebrow" data-i18n="visitEyebrow"></div><h2 data-i18n="visitTitle"></h2><p data-i18n="visitText"></p></div>
+      <div><a class="phone" href="tel:+48660003265">+48 660 003 265</a><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px"><a class="btn light" href="tel:+48660003265" data-i18n="callCta">Зателефонувати</a><a class="btn light" href="https://www.google.com/maps/search/?api=1&query=Kotlarska+40+Wroclaw" target="_blank" rel="noopener"><span data-i18n="mapCta">Відкрити мапу</span><span class="arr">↗</span></a></div></div>
+    </div>
+    <div class="visit-side">
+      <div class="visit-photo" role="img" aria-label="Вареники"></div>
+      <div class="details">
+        <div class="detail"><b data-i18n="addressLabel">Адреса</b><span>Kotlarska 40, Wrocław</span></div>
+        <div class="detail"><b data-i18n="bookingLabel">Бронювання</b><span data-i18n="bookingText"></span></div>
+        <div class="detail"><b data-i18n="welcomeLabel">Гостям</b><span data-i18n="welcomeText"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <a class="brand" href="#home"><svg aria-hidden="true"><use href="#logo"/></svg><span>Ukraińska<br>Knajpa</span></a>
+    <div data-i18n="footerLine"></div>
+    <nav><a href="#menu" data-i18n="navMenu">Меню</a><a href="#about" data-i18n="navAbout">Про нас</a><a href="#visit" data-i18n="navVisit">Контакти</a></nav>
+  </div>
+</footer>
+
+<script>
+window.KNAJPA = { i18n: {
+  uk: { heroTitle: "Українська<br>кухня. <span class=\"mark\">Просто.</span>", menuTitle: "Коротко<br>про головне",
+        aboutBig: "Ми готуємо <img src=\"assets/borsch.jpg\" alt=\"\"> борщ, ліпимо вареники та подаємо все так, ніби ви прийшли в гості до своїх — у самому центрі Вроцлава.",
+        story1: "Борщ, вареники, деруни, бограч — без зайвих експериментів.", story2: "Тут раді кожному: від сніданку з друзями до великої родинної вечері.", story3: "Українська кухня, музика й тепло — у кожній деталі." },
+  pl: { heroTitle: "Kuchnia<br>ukraińska. <span class=\"mark\">Prosto.</span>", menuTitle: "Krótko<br>o najważniejszym",
+        aboutBig: "Gotujemy <img src=\"assets/borsch.jpg\" alt=\"\"> barszcz, lepimy pierogi i podajemy wszystko tak, jakbyś przyszedł do swoich — w samym centrum Wrocławia.",
+        story1: "Barszcz, pierogi, deruny, bogracz — bez zbędnych eksperymentów.", story2: "Każdy jest tu mile widziany: od obiadu z przyjaciółmi po dużą rodzinną kolację.", story3: "Ukraińska kuchnia, muzyka i ciepło — w każdym detalu." },
+  en: { heroTitle: "Ukrainian<br>food. <span class=\"mark\">Simply.</span>", menuTitle: "The short<br>version",
+        aboutBig: "We cook <img src=\"assets/borsch.jpg\" alt=\"\"> borscht, fold varenyky by hand and serve it all as if you were visiting family — right in the centre of Wrocław.",
+        story1: "Borscht, varenyky, deruny, bograch — no unnecessary experiments.", story2: "Everyone is welcome: from lunch with friends to a big family dinner.", story3: "Ukrainian food, music and warmth — in every detail." }
+}};
+</script>
+<script src="site.js"></script>
+</body>
+</html>

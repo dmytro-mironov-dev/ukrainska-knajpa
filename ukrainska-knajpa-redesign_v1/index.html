@@ -29,6 +29,8 @@ footer{background:#06243c;color:#b9cbd6;padding:25px 0}.footer-row{display:flex;
 @media(max-width:700px){.wrap{width:min(100% - 30px,540px)}.nav{height:72px}.brandname{font-size:18px}.brandmark{width:44px;height:44px;font-size:24px}.mobile-toggle{display:block}.navright .btn{display:none}.navlinks{display:none;position:absolute;left:0;right:0;top:72px;background:var(--paper);padding:20px 25px 25px;box-shadow:var(--shadow);flex-direction:column;align-items:flex-start}.navlinks.open{display:flex}.navlinks a{width:100%}.hero{padding:25px 0 45px}.hero-grid{grid-template-columns:1fr;gap:28px}.hero-copy{text-align:center}.hero-copy .eyebrow,.hero-actions,.hero-note{justify-content:center}.hero-copy p{margin-left:auto;margin-right:auto}.hero-actions{gap:15px}.hero-photo{height:290px;border-radius:34px}.hero-visual:after{border-radius:34px}.stamp{width:88px;height:88px;left:-5px;bottom:15px;font-size:11px}.stamp span{font-size:20px}.section{padding:55px 0}.menu-grid{grid-template-columns:1fr}.dish-img{height:220px}.story,.visit-grid{grid-template-columns:1fr;gap:35px}.story-art img{height:300px}.story-card{right:8px}.story-copy h2,.visit h2{font-size:34px}.visit-details{grid-template-columns:1fr 1fr}.footer-row{flex-direction:column;text-align:center}.footer-links{flex-wrap:wrap;justify-content:center}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 </style>
+<link rel="stylesheet" href="../booking/booking.css">
+<style>:root{--bk-bg:#fffaf0;--bk-ink:#092f50;--bk-muted:#6b7c88;--bk-line:#eadfc9;--bk-accent:#f5b900;--bk-accent-ink:#092f50;--bk-font:'DM Sans',sans-serif;--bk-font-head:'Playfair Display',serif;--bk-radius:22px;--bk-floor:#fbf4e7}</style>
 </head>
 <body>
 <div class="topline"></div>
@@ -95,4 +97,5 @@ document.getElementById("mobileToggle").addEventListener("click",()=>document.ge
 document.querySelectorAll(".navlinks a").forEach(a=>a.addEventListener("click",()=>document.getElementById("navlinks").classList.remove("open")));
 renderMenu();
 </script>
+<script src="../booking/booking.js"></script>
 </body></html>

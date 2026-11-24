@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Адмін-панель — Ukraińska Knajpa (демо)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../booking/booking.css">
+<style>
+:root{--bg:#f4f5f7;--card:#fff;--ink:#16181d;--muted:#6b7280;--line:#e5e7eb;--blue:#0057b7;--yellow:#ffd500;--green:#16a34a;--red:#dc2626;--amber:#d97706;
+  --bk-bg:#fff;--bk-ink:#16181d;--bk-muted:#6b7280;--bk-line:#e5e7eb;--bk-accent:#0057b7;--bk-accent-ink:#fff;--bk-font:Inter,sans-serif;--bk-font-head:Inter,sans-serif;--bk-radius:16px;--bk-floor:#f4f5f7}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 Inter,system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.layout{display:grid;grid-template-columns:250px 1fr;min-height:100vh}
+aside{background:#111827;color:#d1d5db;padding:22px 16px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:6px}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:16px;margin:0 6px 22px}
+.logo i{width:34px;height:34px;border-radius:10px;background:linear-gradient(var(--blue) 50%,var(--yellow) 50%);flex:none}
+.logo small{display:block;font-weight:500;font-size:11px;color:#9ca3af}
+aside a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:10px;font-weight:600;font-size:14px}
+aside a:hover{background:#1f2937}
+aside a.on{background:#1f2937;color:#fff}
+aside a .pill{font-size:10px;font-weight:700;padding:2px 7px;border-radius:999px;background:#374151;color:#d1d5db}
+aside a .pill.new{background:var(--yellow);color:#111}
+aside .bottom{margin-top:auto;font-size:12px;color:#9ca3af;padding:0 8px}
+aside .bottom a{padding:8px 0;color:#e5e7eb;font-weight:600}
+main{padding:26px 30px 60px;min-width:0}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.top h1{margin:0;font-size:26px;letter-spacing:-.02em}
+.top p{margin:2px 0 0;color:var(--muted);font-size:14px}
+.demo{display:inline-flex;align-items:center;gap:8px;background:#fff7d6;border:1px solid #f5d76e;color:#7a5b00;padding:8px 12px;border-radius:10px;font-size:13px;font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:10px;padding:10px 16px;font-weight:700;font-size:14px;background:var(--blue);color:#fff}
+.btn:hover{filter:brightness(1.1)}
+.btn.light{background:var(--card);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.btn.sm{padding:6px 10px;font-size:12.5px;border-radius:8px}
+.btn.ok{background:var(--green)}.btn.no{background:var(--card);color:var(--red);box-shadow:inset 0 0 0 1px #fecaca}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.stat b{display:block;font-size:26px;letter-spacing:-.02em}
+.stat span{color:var(--muted);font-size:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin-bottom:20px}
+.card h2{margin:0 0 4px;font-size:18px}
+.card .hint{margin:0 0 16px;color:var(--muted);font-size:13.5px}
+.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;font-size:11.5px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:700;padding:10px 10px;border-bottom:1px solid var(--line)}
+td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:last-child td{border-bottom:0}
+.tablewrap{overflow-x:auto}
+.st{display:inline-block;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:700}
+.st.new{background:#dbeafe;color:#1e40af}.st.ok{background:#dcfce7;color:#166534}.st.no{background:#fee2e2;color:#991b1b}
+.acts{display:flex;gap:6px;flex-wrap:wrap}
+.empty{padding:30px;text-align:center;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+.switch{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.switch:last-child{border-bottom:0}
+.switch b{display:block;font-size:14.5px}
+.switch small{color:var(--muted);font-size:12.5px}
+.tg{position:relative;width:46px;height:26px;flex:none}
+.tg input{position:absolute;opacity:0;width:100%;height:100%;margin:0;cursor:pointer;z-index:1}
+.tg span{position:absolute;inset:0;border-radius:999px;background:#d1d5db;transition:.2s}
+.tg span:after{content:"";position:absolute;left:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:.2s}
+.tg input:checked+span{background:var(--green)}
+.tg input:checked+span:after{transform:translateX(20px)}
+.tg input:focus-visible+span{outline:2px solid var(--blue);outline-offset:2px}
+.zone{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin:14px 0 2px}
+.preview .bk-planwrap{border:1px solid var(--line)}
+.preview .bk-t{cursor:default}
+.locked{position:relative}
+.locked .inner{filter:grayscale(.2);opacity:.55;pointer-events:none;user-select:none}
+.locked .lock{position:absolute;right:20px;top:18px;background:#111827;color:#fff;font-size:12px;font-weight:700;padding:6px 10px;border-radius:999px}
+.menu-row{display:grid;grid-template-columns:1fr 110px 90px;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+.menu-row input{font:inherit;border:1px solid var(--line);border-radius:8px;padding:7px 9px;width:100%}
+.hours{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.hours div{border:1px solid var(--line);border-radius:10px;padding:10px;text-align:center;font-size:13px}
+.hours b{display:block}
+.photos{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.photos img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#111827;color:#fff;padding:10px 16px;border-radius:10px;font-weight:600;font-size:14px;opacity:0;transition:.25s;z-index:2000}
+.toast.show{opacity:1;transform:translateX(-50%)}
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr}
+  aside{position:static;height:auto;flex-direction:row;flex-wrap:wrap;padding:12px}
+  aside .logo{margin:0 10px 0 0;width:100%}
+  aside .bottom{display:none}
+  .stats{grid-template-columns:1fr 1fr}
+  .grid2{grid-template-columns:1fr}
+  main{padding:20px 16px 50px}
+  .hours{grid-template-columns:repeat(4,1fr)}
+  .photos{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside>
+    <div class="logo"><i></i><span>Ukraińska Knajpa<small>Адмін-панель</small></span></div>
+    <a href="#bookings" class="on">Заявки <span class="pill new" id="newCount">0</span></a>
+    <a href="#tables">Столики і зали</a>
+    <a href="#menu">Меню і ціни <span class="pill">PRO</span></a>
+    <a href="#photos">Фото <span class="pill">PRO</span></a>
+    <a href="#hours">Години роботи <span class="pill">PRO</span></a>
+    <div class="bottom"><a href="../v1/" target="_blank" rel="noopener">↗ Відкрити сайт</a><a href="../">← Усі варіанти дизайну</a></div>
+  </aside>
+
+  <main>
+    <div class="top">
+      <div><h1>Добрий день! 👋</h1><p>Тут ви керуєте бронюваннями та вмістом сайту — без програміста.</p></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <span class="demo">⚠️ Демо — дані зберігаються лише у вашому браузері</span>
+        <button class="btn" type="button" data-booking>+ Тестова заявка</button>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><b id="sNew">0</b><span>Нові заявки</span></div>
+      <div class="stat"><b id="sOk">0</b><span>Підтверджені</span></div>
+      <div class="stat"><b id="sTables">0</b><span>Столиків доступно</span></div>
+      <div class="stat"><b id="sTerrace">—</b><span>Літній майданчик</span></div>
+    </div>
+
+    <section class="card" id="bookings">
+      <div class="card-head">
+        <div><h2>Заявки на бронювання</h2><p class="hint">Нові заявки з сайту. Зателефонуйте гостю й підтвердіть або відхиліть. У повній версії заявка ще й одразу приходить у Telegram або на пошту.</p></div>
+        <button class="btn light sm" type="button" id="clearAll">Очистити все</button>
+      </div>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Дата і час</th><th>Гостей</th><th>Столик</th><th>Гість</th><th>Коментар</th><th>Статус</th><th></th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table></div>
+    </section>
+
+    <section class="grid2" id="tables">
+      <div class="card">
+        <h2>Столики і зали</h2>
+        <p class="hint">Вимкніть столик, якщо він зайнятий на весь вечір або в ремонті. Літній майданчик вимикається одним перемикачем на холодний сезон.</p>
+        <div class="switch"><div><b>☀️ Літній майданчик відкритий</b><small>Гості бачать і можуть бронювати столики надворі</small></div><label class="tg"><input type="checkbox" id="terraceToggle"><span></span></label></div>
+        <div id="tableList"></div>
+      </div>
+      <div class="card preview">
+        <h2>Як це бачать гості</h2>
+        <p class="hint">Схема оновлюється одразу після змін.</p>
+        <div class="bk-tabs"><button type="button" data-pz="hall" aria-selected="true">Зал</button><button type="button" data-pz="terrace" aria-selected="false">Літній майданчик</button></div>
+        <div id="previewPlan"></div>
+      </div>
+    </section>
+
+    <section class="card locked" id="menu">
+      <span class="lock">🔒 У повній версії</span>
+      <div class="inner">
+        <h2>Меню і ціни</h2>
+        <p class="hint">Змінюйте страви, ціни й описи трьома мовами — сайт оновиться сам.</p>
+        <div class="menu-row"><b>Страва</b><b>Ціна, zł</b><b>На сайті</b></div>
+        <div class="menu-row"><input value="Борщ український"><input value="25"><label class="tg"><input type="checkbox" checked><span></span></label></div>
+        <div class="menu-row"><input value="Бограч карпатський"><input value="40"><label class="tg"><input type="checkbox" checked><span></span></label></div>
+        <div class="menu-row"><input value="Вареники з картоплею"><input value="20"><label class="tg"><input type="checkbox" checked><span></span></label></div>
+        <div class="menu-row"><input value="Козацька дошка"><input value="60"><label class="tg"><input type="checkbox"><span></span></label></div>
+      </div>
+    </section>
+
+    <section class="card locked" id="photos">
+      <span class="lock">🔒 У повній версії</span>
+      <div class="inner">
+        <h2>Фото</h2>
+        <p class="hint">Завантажте нові фото страв і залу прямо з телефону.</p>
+        <div class="photos"><img src="../ukrainska-knajpa-redesign_v1/assets/borsch.jpg" alt=""><img src="../ukrainska-knajpa-redesign_v1/assets/varenyky.jpg" alt=""><img src="../ukrainska-knajpa-redesign_v1/assets/bograch.jpg" alt=""><img src="../ukrainska-knajpa-redesign_v1/assets/deruny.jpg" alt=""></div>
+      </div>
+    </section>
+
+    <section class="card locked" id="hours">
+      <span class="lock">🔒 У повній версії</span>
+      <div class="inner">
+        <h2>Години роботи</h2>
+        <p class="hint">Святкові дні, вихідні, спецзаходи — змінюються за хвилину.</p>
+        <div class="hours"><div><b>Пн</b>12–22</div><div><b>Вт</b>12–22</div><div><b>Ср</b>12–22</div><div><b>Чт</b>12–22</div><div><b>Пт</b>12–23</div><div><b>Сб</b>12–23</div><div><b>Нд</b>12–21</div></div>
+      </div>
+    </section>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="../booking/booking.js"></script>
+<script>
+(function () {
+  var KB = window.KnajpaBooking, AK = KB.keys.admin, BK = KB.keys.bookings, TABLES = KB.tables;
+  function load(k, d) { try { var v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; } catch (e) { return d; } }
+  function save(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function admin() { var a = load(AK, {}); return { terraceOpen: a.terraceOpen !== false, off: a.off || {} }; }
+  function toast(t) { var el = document.getElementById("toast"); el.textContent = t; el.classList.add("show"); clearTimeout(el._t); el._t = setTimeout(function () { el.classList.remove("show"); }, 1800); }
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function day(o) { var d = new Date(); d.setDate(d.getDate() + o); return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); }
+
+  if (load(BK, null) === null) {
+    save(BK, [
+      { id: 1, date: day(0), time: "19:00", guests: 4, table: "H5", name: "Оксана", phone: "+48 512 345 678", comment: "День народження доньки", status: "new", demo: true },
+      { id: 2, date: day(1), time: "14:00", guests: 2, table: "H2", name: "Marek", phone: "+48 601 222 333", comment: "", status: "ok", demo: true },
+      { id: 3, date: day(2), time: "20:30", guests: 3, table: "H4", name: "Andrii", phone: "+48 733 111 999", comment: "Дитячий стілець", status: "new", demo: true }
+    ]);
+  }
+
+  var pz = "hall";
+  function render() {
+    var list = load(BK, []), a = admin();
+    var rows = document.getElementById("rows");
+    if (!list.length) rows.innerHTML = '<tr><td colspan="7" class="empty">Поки що заявок немає. Натисніть «+ Тестова заявка», щоб спробувати.</td></tr>';
+    else rows.innerHTML = list.map(function (b) {
+      var st = b.status === "ok" ? '<span class="st ok">Підтверджено</span>' : b.status === "no" ? '<span class="st no">Відхилено</span>' : '<span class="st new">Нова</span>';
+      var d = esc(b.date).split("-").reverse().join(".");
+      return "<tr><td><b>" + d + "</b><br><small>" + esc(b.time) + "</small></td><td>" + esc(b.guests) + "</td><td><b>" + esc(b.table) + "</b></td>" +
+        "<td>" + esc(b.name) + '<br><small><a href="tel:' + esc(String(b.phone).replace(/\s/g, "")) + '">' + esc(b.phone) + "</a></small></td><td><small>" + (esc(b.comment) || "—") + "</small></td><td>" + st + "</td>" +
+        '<td><div class="acts">' + (b.status !== "ok" ? '<button class="btn ok sm" data-act="ok" data-id="' + b.id + '">Підтвердити</button>' : "") +
+        (b.status !== "no" ? '<button class="btn no sm" data-act="no" data-id="' + b.id + '">Відхилити</button>' : "") + "</div></td></tr>";
+    }).join("");
+    var nNew = list.filter(function (b) { return b.status === "new"; }).length;
+    document.getElementById("newCount").textContent = nNew;
+    document.getElementById("sNew").textContent = nNew;
+    document.getElementById("sOk").textContent = list.filter(function (b) { return b.status === "ok"; }).length;
+    var avail = TABLES.filter(function (t) { return !a.off[t.id] && (t.zone === "hall" || a.terraceOpen); }).length;
+    document.getElementById("sTables").textContent = avail + " / " + TABLES.length;
+    document.getElementById("sTerrace").textContent = a.terraceOpen ? "Відкрито" : "Закрито";
+    document.getElementById("terraceToggle").checked = a.terraceOpen;
+
+    var tl = "", zone = "";
+    TABLES.forEach(function (t) {
+      if (t.zone !== zone) { zone = t.zone; tl += '<div class="zone">' + (zone === "hall" ? "Зал" : "Літній майданчик") + "</div>"; }
+      var dis = t.zone === "terrace" && !a.terraceOpen;
+      tl += '<div class="switch"' + (dis ? ' style="opacity:.45"' : "") + '><div><b>Столик ' + t.id + "</b><small>" + t.seats + " місця" + (dis ? " · майданчик закрито" : "") + '</small></div><label class="tg"><input type="checkbox" data-table="' + t.id + '"' + (a.off[t.id] ? "" : " checked") + (dis ? " disabled" : "") + "><span></span></label></div>";
+    });
+    document.getElementById("tableList").innerHTML = tl;
+
+    document.getElementById("previewPlan").innerHTML = '<div class="bk-planwrap">' + previewSvg(pz, a) + "</div>";
+  }
+
+  function previewSvg(zone, a) {
+    var out = '<svg class="bk-plan" viewBox="0 0 420 310">' + (zone === "hall"
+      ? '<rect class="bk-room" x="8" y="8" width="404" height="294" rx="14"/><rect class="bk-fixed" x="22" y="22" width="110" height="40" rx="8"/><text class="bk-lbl" x="77" y="47">Бар</text><rect class="bk-fixed" x="22" y="74" width="40" height="110" rx="8"/><text class="bk-lbl" x="42" y="133" transform="rotate(-90 42 129)">Кухня</text><path class="bk-door" d="M180 302h60"/><text class="bk-lbl bk-in" x="210" y="292">↑ Вхід</text>'
+      : '<rect class="bk-room bk-terr" x="8" y="8" width="404" height="294" rx="14"/><text class="bk-lbl bk-street" x="210" y="296">вулиця Kotlarska</text>');
+    TABLES.filter(function (t) { return t.zone === zone; }).forEach(function (t) {
+      var off = a.off[t.id] || (t.zone === "terrace" && !a.terraceOpen);
+      var body = t.shape === "round" ? '<circle class="bk-top" cx="' + t.x + '" cy="' + t.y + '" r="' + t.r + '"/>' : '<rect class="bk-top" x="' + (t.x - t.w / 2) + '" y="' + (t.y - t.h / 2) + '" width="' + t.w + '" height="' + t.h + '" rx="6"/>';
+      out += '<g class="bk-t ' + (off ? "bk-off" : "bk-free") + '">' + body + '<text class="bk-tid" x="' + t.x + '" y="' + (t.y + 4) + '">' + t.id + "</text></g>";
+    });
+    out += "</svg>";
+    if (zone === "terrace" && !a.terraceOpen) out = '<div class="bk-closed">Майданчик закрито — гості його не можуть бронювати</div>' + out;
+    return out;
+  }
+
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-act]");
+    if (b) {
+      var list = load(BK, []);
+      list.forEach(function (x) { if (String(x.id) === b.dataset.id) x.status = b.dataset.act; });
+      save(BK, list); render(); toast(b.dataset.act === "ok" ? "Бронювання підтверджено ✓" : "Заявку відхилено");
+    }
+    var z = e.target.closest("[data-pz]");
+    if (z) { pz = z.dataset.pz; document.querySelectorAll("[data-pz]").forEach(function (x) { x.setAttribute("aria-selected", x === z); }); render(); }
+  });
+  document.addEventListener("change", function (e) {
+    var a = load(AK, {}); a.off = a.off || {};
+    if (e.target.id === "terraceToggle") { a.terraceOpen = e.target.checked; save(AK, a); render(); toast(e.target.checked ? "Літній майданчик відкрито ☀️" : "Літній майданчик закрито"); }
+    else if (e.target.dataset.table) { var id = e.target.dataset.table; if (e.target.checked) delete a.off[id]; else a.off[id] = true; save(AK, a); render(); toast("Столик " + id + (e.target.checked ? " увімкнено" : " вимкнено")); }
+  });
+  document.getElementById("clearAll").addEventListener("click", function () { save(BK, []); render(); toast("Список очищено"); });
+  document.addEventListener("knajpa:booking", function () { render(); toast("Нова заявка з сайту!"); });
+  document.querySelectorAll("aside a[href^='#']").forEach(function (l) { l.addEventListener("click", function () { document.querySelectorAll("aside a").forEach(function (x) { x.classList.toggle("on", x === l); }); }); });
+  render();
+})();
+</script>
+</body>
+</html>
